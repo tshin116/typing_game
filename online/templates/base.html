@@ -1,0 +1,68 @@
+{% load static %}
+{% load django_bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+<!-- Bootstrapサンプルのnavbar-staticをコピーして編集する。 -->
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+        <meta name="generator" content="Hugo 0.84.0">
+        <title>{% block title %}{% endblock %}</title>
+
+        {# --- css --- #}
+        <!-- Custom styles for this template -->
+        <link href="{% static 'css/navbar-static.css' %}" rel="stylesheet">
+        <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        {# --- js --- #}
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+        {# --- files --- #}
+        <script>
+            let titleSrc = "{% static 'img/title.bmp' %}";
+            let backgroundSrc = "{% static 'img/background.bmp' %}";
+            let characterSrc = [
+                "{% static 'img/character.bmp' %}",
+                "{% static 'img/character2.bmp' %}",
+                "{% static 'img/character3.bmp' %}",
+                "{% static 'img/character4.bmp' %}"
+            ];
+            let matchingImageSrc = "{% static 'img/matching.bmp' %}";
+        </script>
+        
+        <!-- ナビゲーションバー -->
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                        <li class="nav-item">
+                            <a class="navbar-brand" href="{% url 'online:index' %}">Touch, touch, touch!</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- メインコンテンツ -->
+        <main class="container">
+            {% block contents %}{% endblock %}
+        </main>
+
+        <!-- フッター -->
+        <footer class="text-muted py-5">
+            <div class="container">
+                <p class="float-end mb-1">
+                    <a href="{% url 'online:index' %}">トップページに戻る</a>
+                </p>
+                <p class="mb-1">
+                    &copy; 2023 RecSysLab
+                </p>
+            </div>
+        </footer>
+    </body>
+</html>

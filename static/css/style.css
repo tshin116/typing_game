@@ -1,0 +1,71 @@
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+}
+
+/* タイピングゲームのスタイル */
+body {
+    background-position: center 11.8%;
+    background-repeat: no-repeat;
+    font-family: 'メイリオ', sans-serif;
+    text-align: center;
+    
+}
+
+#sentence-container-1 {
+    position: absolute;
+    left: 200px; 
+    top: 80px;
+    font-size: 40px;
+    font-weight: 900;
+    margin: 20px;
+   
+}
+#sentence-container-2 {
+    position: absolute;
+    left: 200px; 
+    top: 640px;
+    font-size: 40px;
+    font-weight: 900;
+    margin: 20px;
+    
+}
+#input-sentence {
+    border: none;          /* 枠線を消す */
+    /*outline: none;          フォーカス時の枠線も消す */
+    cursor: text;          /* カーソルのみ表示 */
+    position: absolute;
+    left: 200px; 
+    top: 180px;
+    font-size: 40px;
+    font-weight: bold;
+    margin: 20px;
+    text-align: start;
+    color: white;
+}
+
+#result {
+    position: absolute;
+    left: 400px; 
+    top: 250px;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.highlight {
+    color: red;
+}
+
+.typed {
+    opacity: 0.5;
+    color: rgb(238, 238, 238);
+}

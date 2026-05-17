@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+*$py.class
+
+.venv/
+venv/
+env/
+
+.env
+*.sqlite3
+db.sqlite3
+
+typinggame.tar.gz
+*:Zone.Identifier
+
+staticfiles/
+.DS_Store

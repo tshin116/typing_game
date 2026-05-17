@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+{% load static %}
+ 
+{% block title %}Typinggame{% endblock %}
+{% block contents %}
+    {% load static %}
+    <body background="static/img/background.bmp">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+        <!--<div class="col-md-12 text-center">-->
+        <div id="canvasContainer" class="col-md-12 text-center">
+            <canvas id="main_canvas" width="1280" height="720"></canvas>     <!-- 修正 -->
+
+            <div id="radioButtons" class="radio-button-container">
+                <label>
+                    <input type="radio" name="level" value="1" id="level1Button" class="btn btn-primary" checked> 日本語
+                </label>
+                <label>
+                    <input type="radio" name="level" value="2" id="level2Button" class="btn btn-primary"> English
+                </label>
+            </div>
+        </div>
+
+        <div id="sentence-container-1"></div>
+        <div id="sentence-container-2"></div>
+        <div id="input-sentence" contenteditable="true" autocorrect="off" autocapitalize="off" spellcheck="false"></div>
+        <div id="result"></div>    
+    </body>
+     <!-- ここにJavaScriptコードを追記 -->
+     <!-- デフォルトの制限時間を設定するJavaScriptコード -->
+ 
+    <script>
+        var setDefaultLevel;
+ 
+        function setDefaultLevel() {
+            // ラジオボタンのデフォルト選択に応じて制限時間を設定
+             selectedLevel = $("input[name='level']:checked").val();
+ 
+            switch (selectedLevel) {
+                case '1':
+                    // レベル1の制限時間設定
+                    remainingTime = 10; // 制限時間を10秒に設定
+                    targetSpeed = 2000;
+                    targetScore = 50;
+                    target2Score = 150;
+                    //drawTitle(japaneseTitle);
+                    //drawTitle("タイピングゲーム");
+                    break;
+                case '2':
+                    レベル2の制限時間設定
+                    remainingTime = 20; // 制限時間を20秒に設定
+                    targetSpeed = 1500;
+                    targetScore = 100;
+                    target2Score = 300;
+                    //drawTitle(englisTitle);
+                    //drawTitle("Typing Game");
+                 break;
+        }
+        
+}
+        // ページ読み込み時にデフォルトの制限時間を設定
+        $(document).ready(function () {
+            setDefaultLevel();
+        });
+ 
+        // ラジオボタンの変更イベントを監視
+        $("input[name='level']").change(function () {
+            setDefaultLevel();
+        });
+
+    </script>
+ 
+<!--こっから音量-->
+{# --- js --- #}
+<script type="text/javascript" src="{% static 'js/main.js' %}"></script>        <!-- 追加 -->
+<script type="text/javascript" src="{% static 'js/csrftoken.js' %}"></script>     <!-- 追加 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Volume Control</title>
+<style>
+    #volumeButton {
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+<button id="volumeButton">音量: OFF</button>
+ 
+<script>
+    // 音声オブジェクトの作成
+    const audio = new Audio('/static/sounds/bgm.mp3');
+    audio.volume = 1; // 初期音量を設定 (0から1の範囲)
+ 
+    // ボタン要素を取得
+    const volumeButton = document.getElementById('volumeButton');
+ 
+    // ボタンクリック時の処理
+    volumeButton.addEventListener('click', toggleVolume);
+ 
+    // 音量切り替え関数
+    function toggleVolume() {
+        console.log('Toggle volume function called');  // 追加
+ 
+        // play() メソッドを使用して音声を再生
+    audio.play().then(() => {
+        if (audio.volume === 0) {
+            // 音量がゼロの場合、オフからオンに変更
+            audio.volume = 1;
+            volumeButton.textContent = '音量: ON';
+        } else {
+            // それ以外の場合、オンからオフに変更
+            audio.volume = 0;
+            volumeButton.textContent = '音量: OFF';
+        }
+    }).catch(error => {
+        console.error('Error playing audio:', error);
+    });
+    }
+</script>
+</body>
+</html>
+ 
+ 
+{% endblock %}
