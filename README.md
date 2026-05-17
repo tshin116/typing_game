@@ -29,14 +29,7 @@ CPUのレートに応じてタイピング速度を変化させることで、�
 
 ## アプリケーションのイメージ
 
-現在、README表示用の画像配置ディレクトリを用意しています。  
-スクリーンショットやGIFを追加すると、以下のセクションに画面イメージを掲載できます。
-
-```text
-docs/img/app-view/
-```
-
-推奨する追加画像は、README下部の「追加すると良い画像」にまとめています。
+![アプリケーションのイメージ](/docs/img/app-view/game-play.gif)
 
 <br />
 
@@ -44,10 +37,12 @@ docs/img/app-view/
 
 | スタート画面 | マッチング画面 |
 | ---- | ---- |
+| ![スタート画面](/docs/img/app-view/start.png) | ![マッチング画面](/docs/img/app-view/matching.png) |
 | 日本語・英語モードを選択し、クリックで対戦を開始します。BGMのON/OFF切り替えにも対応しています。 | プレイヤーとCPUの名前・レート・連勝数を表示し、5秒後に対戦へ移行します。 |
 
 | タイピング対戦画面 | 結果画面 |
 | ---- | ---- |
+| ![タイピング対戦画面](/docs/img/app-view/battle.png) | ![結果画面](/docs/img/app-view/result.png) |
 | お題を入力し、正しい文字はグレー、誤った文字は赤で表示します。先に入力完了した側にポイントが入ります。 | 勝敗、レート変動、タイピング速度を表示します。クリックすると再マッチングできます。 |
 
 | レート管理 | 言語切り替え |
@@ -219,22 +214,10 @@ http://127.0.0.1:8000/
 
 <br />
 
-## 追加すると良い画像
+## 画像について
 
-以下の画像を追加すると、GitHub上でより見やすいポートフォリオになります。
-
-| 用途 | 推奨ファイル名 | 配置場所 |
-| --- | --- | --- |
-| ヘッダー画像 | `header.png` または `header.svg` | `docs/img/header/` |
-| プレイ動画GIF | `game-play.gif` | `docs/img/app-view/` |
-| スタート画面 | `start.png` | `docs/img/app-view/` |
-| マッチング画面 | `matching.png` | `docs/img/app-view/` |
-| タイピング対戦画面 | `battle.png` | `docs/img/app-view/` |
-| 結果画面 | `result.png` | `docs/img/app-view/` |
-| システム構成図 | `system-architecture.png` | `docs/img/system-architecture/` |
-| ER図 | `er-diagram.png` | `docs/img/entity-relationship-diagram/` |
-
-画像を追加した後、README内の「アプリケーションのイメージ」や「機能一覧」に画像リンクを差し込むと、より視覚的に伝わる構成になります。
+READMEで使用している画像は、`docs/img/`配下に配置しています。  
+画面キャプチャを差し替える場合は、同じファイル名で上書きするとREADME側のリンクを変更せずに更新できます。
 
 <br />
 
